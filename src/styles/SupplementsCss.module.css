@@ -1,0 +1,22 @@
+.encadreListe{
+    border:1px solid black;
+    border-collapse: collapse;
+    max-width:100%;
+    white-space:nowrap;
+    background-color: greenyellow;
+}
+
+.close {
+    cursor: pointer;
+    top: 100%;
+    right: 0%;
+    transform: translate(0%, -50%);
+    color: red;
+    font-weight: bold;
+
+}
+
+.miseEnformeTableau{
+    background-color: yellow;
+    padding: 1px;
+}

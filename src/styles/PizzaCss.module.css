@@ -1,0 +1,31 @@
+.divListePizza {
+    color: black;
+    border: 1px solid #333;
+}
+
+.pizzaTitle {
+    color: black;
+    align-items: center;
+    max-width: 100%;
+    white-space: nowrap;
+    display: block;
+}
+
+.pizza-piquant {
+    color: red;
+    align-items: center;
+}
+
+.pizza-cool {
+    color: blue;
+    align-items: center;
+}
+
+.stockActu {
+    color: #6b0392;
+    font-size: 14px;
+}
+
+.links {
+    padding: 10px;
+}

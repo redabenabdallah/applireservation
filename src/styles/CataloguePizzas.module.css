@@ -1,0 +1,10 @@
+.cataloguePizzas {
+    font-size: 14px;
+    background-color: #e4e86d;
+    border: 1px solid #333;
+    width: max-content;
+}
+
+.typePizza {
+    font-weight: bold;
+}
