@@ -1,5 +1,6 @@
 import { useDrop } from 'react-dnd'
 import { useState } from 'react'
+import {TiDelete} from 'react-icons/ti'
 import { ItemTypes } from '../items/ItemTypes'
 import { useDispatch, useSelector } from 'react-redux'
 import {updateAfterDrop, listeSupplementsActual, removeSupplement} from "../reducer/pizzaSlice";
@@ -27,7 +28,7 @@ export function RecapCommandesSupplements(props) {
   return <td key={idCommande}  ref={drop} onDrop={() => dispatch(updateAfterDrop([{ canDrop, isOver,hasDropActu, item, idCommande}, drop].at(0)))}>
     {listeSupp.filter(x => x.idCommande === idCommande).map((monSupplement) => (
         <span key={{idCommande, monSupplement}} className={styleListeSupplement.miseEnformeTableau}>{monSupplement.supplement}
-        <span key={{idCommande, monSupplement}} className={styleListeSupplement.close} onClick={()=> dispatch(removeSupplement({idCommande, listeSupp, monSupplement}))}>&times;</span></span>
+        <i key={{idCommande, monSupplement}} className={styleListeSupplement.close} onClick={()=> dispatch(removeSupplement({idCommande, listeSupp, monSupplement}))}><TiDelete/></i></span>
     ))}</td>
 
   

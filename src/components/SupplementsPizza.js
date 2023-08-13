@@ -28,7 +28,7 @@ export default function Supplements({ isDragging, text, prix }, props) {
     )
     return (
       <div>
-      <span className={styleListeSupplement.encadreListe} ref={dragRef} style={{ opacity }}>
+      <span id={'supplement-' + text} className={styleListeSupplement.encadreListe} ref={dragRef} style={{ opacity }}>
         {text} : {prix} euros
       </span>
       </div>

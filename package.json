@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "cypress": "^12.17.2",
+    "cypress-drag-drop": "^1.1.1",
     "cypress-mochawesome-reporter": "^3.5.1",
     "moment": "^2.29.4",
     "react": "^18.2.0",

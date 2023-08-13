@@ -1,5 +1,5 @@
 #language:fr
-Fonctionnalité:  Login
+Fonctionnalité:  Commandes de Pizzas et suppléments
 
   Scénario: Je me connecte à la page de réservation de pizza avant la date du 10/12/2023 14:48:00 en dehors du mois de Noel
     Etant donné Je me connecte à la page de réservation de pizza à la date du 09/11/2023 14:48:00
@@ -17,7 +17,7 @@ Fonctionnalité:  Login
     Etant donné Je me connecte à la page de réservation de pizza à la date du 09/11/2023 14:48:00
     Quand Je commande 1 pizza napolitaine
     Et Je clique sur le bouton Voir mon panier
-    Alors J'ai un tableau récapitulatif de ma commande avec comme header Commande N°,Libelle,Prix Unitaire,Nb Commandes,
+    Alors J'ai un tableau récapitulatif de ma commande avec comme header Commande N°,Libelle,Prix Unitaire,Nb Commandes,Liste Suppléments,
     Et J'ai un tableau récapitulatif avec la commande 0,napolitaine,6 euros,1
     Et J'ai un tableau total avec comme header Prix à payer
     Et J'ai un tableau total avec un montant de 6 euros
@@ -26,3 +26,25 @@ Fonctionnalité:  Login
     Alors J'ai un tableau récapitulatif avec la commande 1,tono,6 euros,1
     Et J'ai un tableau total avec comme header Prix à payer
     Et J'ai un tableau total avec un montant de 15 euros
+
+    Scénario: Ajout de suppléments
+    Etant donné Je me connecte à la page de réservation de pizza à la date du 09/11/2023 14:48:00
+    Quand Je commande 1 pizza napolitaine
+    Et Je clique sur le bouton Voir mon panier
+    Alors J'ai un tableau récapitulatif de ma commande avec comme header Commande N°,Libelle,Prix Unitaire,Nb Commandes,Liste Suppléments,
+    Et J'ai un tableau récapitulatif avec la commande 0,napolitaine,6 euros,1
+    Etant donné Je  drag and drop le supplément champi sur la commande N°1
+    Alors Dans le tableau récapitulatif, pour la commande N°1, la colonne Liste Suppléments a pour valeur champi
+    Et J'ai un tableau total avec un montant de 7 euros
+
+    Scénario: Suppression de supplément
+    Etant donné Je me connecte à la page de réservation de pizza à la date du 09/11/2023 14:48:00
+    Quand Je commande 1 pizza napolitaine
+    Et Je clique sur le bouton Voir mon panier
+    Alors J'ai un tableau récapitulatif de ma commande avec comme header Commande N°,Libelle,Prix Unitaire,Nb Commandes,Liste Suppléments,
+    Et J'ai un tableau récapitulatif avec la commande 0,napolitaine,6 euros,1
+    Etant donné Je  drag and drop le supplément champi sur la commande N°1
+    Alors Dans le tableau récapitulatif, pour la commande N°1, la colonne Liste Suppléments a pour valeur champi
+    Et J'ai un tableau total avec un montant de 7 euros
+    Quand Je supprime le supplément champi de la commande N°1
+    Alors J'ai un tableau total avec un montant de 6 euros

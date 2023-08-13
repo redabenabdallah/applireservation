@@ -35,7 +35,7 @@ export class NavigationPo {
     commandePizza(nbPizz, typePizz) {
         times(nbPizz, () => {
             cy.get('body').find('[id*=pizzaModel-]').contains(new RegExp("^" + typePizz + "$", "g"))
-                .parents('li').eq(0).find('button').eq(0).click()
+                .parents('span').eq(0).find('button').eq(0).click()
         })
     }
 
