@@ -1,10 +1,8 @@
 import {RecapCommandes} from "./RecapCommandes";
-import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {selectItems, isPanierAlreadyOpen, hasChangePagePanier, libellePanier, clickOnPanier} from "../reducer/pizzaSlice";
+import {selectItems, hasChangePagePanier, libellePanier, clickOnPanier} from "../reducer/pizzaSlice";
 import {MdAddShoppingCart} from 'react-icons/md'
 import style from '../styles/Panier.module.css'
-import SupplementsPizza from './SupplementsPizza'
 
 function afficheRecap(libelleBtnPanier, pageChanged) {
     if (libelleBtnPanier !== 'Voir mon panier' || (pageChanged && libelleBtnPanier !== 'Voir mon panier')) {
@@ -15,7 +13,6 @@ function afficheRecap(libelleBtnPanier, pageChanged) {
 
 function Panier() {
     const dispatch = useDispatch()
-    let isPanierOpen = useSelector(isPanierAlreadyOpen)
     let pageChanged = useSelector(hasChangePagePanier)
     let libPan = useSelector(libellePanier)
     const listeCommandes = useSelector(selectItems)

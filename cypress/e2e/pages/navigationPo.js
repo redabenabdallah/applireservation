@@ -1,14 +1,21 @@
 import { times } from 'lodash'
 import moment from 'moment'
 
+
 export class NavigationPo {
 
-    goToPage(dateString) {
+    goToPage(userCnx, pwdCnx, dateString) {
         const dateFormat = new Date(moment(dateString, "DD/MM/YYYY HH:mm:SS").format('YYYY-MM-DDTHH:mm:SS'))
         cy.log(dateString)
         cy.log(moment(dateString , "DD/MM/YYYY HH:mm:SS").format('YYYY-MM-DDTHH:mm:SS'))
         cy.clock(dateFormat.getTime(), ['Date'])
         cy.visit('http://localhost:3000/')
+        cy.get('#inputUserLogin').clear().type(userCnx)
+        cy.get('#inputUserPwd').clear().type(pwdCnx)
+        cy.get('#loginUserBtn').click()
+        cy.url().should((url)=>{
+            expect(url.toString().endsWith('mesPizzas')).to.equals(true)
+        })
     }
 
     checkBtnPage(nbBtn, libelleBtn) {
@@ -41,5 +48,14 @@ export class NavigationPo {
 
     clickBtn(btn) {
         cy.get('body').find('button').contains(new RegExp("^" + btn + "$", "g")).eq(0).click()
+    }
+
+    verifLiens(listeLiens){
+        let listeActuLien = new Array();
+        cy.get('body').find('a').each((lien)=>{
+            listeActuLien.push(lien.text().trimEnd().trimStart())
+        }).wrap(listeActuLien).then((listeActuLien)=> {
+            expect(listeActuLien.join(',')).to.equals(listeLiens)
+        })
     }
 }

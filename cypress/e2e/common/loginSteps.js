@@ -3,8 +3,8 @@ import {NavigationPo} from "../pages/navigationPo";
 
 const navigationPo = new NavigationPo()
 
-When(/^Je me connecte à la page de réservation de pizza à la date du (.*)/, (dateCnx) => {
-    navigationPo.goToPage(dateCnx)
+When(/^Je me connecte en tant que (.*) avec le mot de passe (.*) à la page de réservation de pizza à la date du (.*)/, (userConx,pwdCnx, dateCnx) => {
+    navigationPo.goToPage(userConx,pwdCnx, dateCnx)
 });
 
 Then(/^J'ai (\d+) bouton (.*)/, (nbBtn, libelleBtn) => {
@@ -29,6 +29,10 @@ When(/Je commande (\d+) pizza (.*)/, (nbPizz, typePizz) => {
 
 When(/Je clique sur le bouton (.*)/, (btn) => {
     navigationPo.clickBtn(btn)
+})
+
+Then(/Les liens disponibles sont uniquement (.*)/, (listeLiens) =>{
+    navigationPo.verifLiens(listeLiens)
 })
 
 

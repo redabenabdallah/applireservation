@@ -29,3 +29,9 @@
 .links {
     padding: 10px;
 }
+
+.deConnecte{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}

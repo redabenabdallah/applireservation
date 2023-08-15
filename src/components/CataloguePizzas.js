@@ -1,6 +1,7 @@
 import style from '../styles/CataloguePizzas.module.css'
 import {useDispatch} from "react-redux";
 import {pageHasChanged} from "../reducer/pizzaSlice";
+import {ListeLinks} from '../components/ListeLinks'
 
 let homePizzas = [
     {
@@ -41,7 +42,7 @@ export function CataloguePizzas() {
     const dispatch = useDispatch()
     dispatch(pageHasChanged())
     return <>
-        <br/>
+        <ListeLinks/>
         <br/>
         <div className={style.cataloguePizzas}>{homePizzas.map((p) => (
             <div key={p.type}><span className={style.typePizza}> {p.type} </span>{': ' + p.ingredients}</div>

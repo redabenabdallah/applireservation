@@ -1,4 +1,7 @@
+import {currentUser, deconnecteUser, isLoginUser, roleUser} from '../reducer/userSlice'
+
 import style from '../styles/PizzaCss.module.css'
+import {useNavigate} from "react-router-dom";
 import {TiArrowRight} from 'react-icons/ti'
 import Panier from "./Panier";
 import SupplementsPizza from './SupplementsPizza';
@@ -9,6 +12,7 @@ import { ReservationCard } from "./ReservationCard";
 import React, { useEffect, useState } from "react";
 import { getReservations } from "../api/getReservations";
 import { ListeSupplementsData } from '../data/ListeSupplementsData';
+import { ListeLinks } from './ListeLinks';
 
 let homePizzas = [
     { 'type': 'napolitaine', 'sauce ': 'tomate', 'piquant': 'non', 'prix': '6 euros', 'nbTotal': 3, 'nbCommandes': 0 },
@@ -57,6 +61,7 @@ homePizzas = getListePizza()
 
 export function ListePizzas() {
 
+    const userName = useSelector(currentUser)
     const myUserId = 1;
     const [reservations, setReservations] = useState([]);
 
@@ -68,14 +73,22 @@ export function ListePizzas() {
 
         fetchReservationsAndSet();
     }, []);
+    
 
     const dispatch = useDispatch()
+    const navigate = useNavigate();
     const listeCommandes = useSelector(selectItems)
     const listeSupplement = new ListeSupplementsData()
     return <>
+            <ListeLinks/>
+            
+            <button className={style.deConnecte} onClick={() =>{
+                dispatch(deconnecteUser(''))
+                navigate('/')
+            }}>Deconnexion</button>
         <ul>
             <div>
-                <h3> Benvenuto </h3>
+                <h3> Benvenuto {userName} </h3>
                 {reservations.length === 0 && <div>Loading...</div>}
                 {reservations.length !== 0 && (
                     <>
