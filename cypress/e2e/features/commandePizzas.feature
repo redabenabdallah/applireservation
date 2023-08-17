@@ -49,3 +49,15 @@ Fonctionnalité:  Commandes de Pizzas et suppléments
     Et J'ai un tableau total avec un montant de 7 euros
     Quand Je supprime le supplément champi de la commande N°1
     Alors J'ai un tableau total avec un montant de 6 euros
+
+    Scénario: Au jour anniversaire, on bénéficie de 50% de réduction sur le total de la commande
+    Etant donné Je me connecte en tant que Alf avec le mot de passe test à la page de réservation de pizza à la date du 20/09/2023 14:48:00
+    Quand Je commande 1 pizza napolitaine
+    Et Je clique sur le bouton Voir mon panier
+    Alors J'ai un tableau récapitulatif de ma commande avec comme header Commande N°,Libelle,Prix Unitaire,Nb Commandes,Liste Suppléments,
+    Et J'ai un tableau récapitulatif avec la commande 0,napolitaine,6 euros,1
+    Et J'ai un tableau total avec un montant de 3 euros
+    Quand Je commande 1 pizza montagnard
+    Alors J'ai un tableau récapitulatif avec la commande 0,napolitaine,6 euros,1
+    Et J'ai un tableau récapitulatif avec la commande 0,montagnard,20 euros,1
+    Mais J'ai un tableau total avec un montant de 13 euros

@@ -1,1 +1,1 @@
-ReactJS + Cypress + Cucumber + test clock et tick
+ReactJS + Cypress + Cucumber + test clock et tick + intercept (mock)

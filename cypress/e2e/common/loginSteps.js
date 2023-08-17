@@ -35,4 +35,12 @@ Then(/Les liens disponibles sont uniquement (.*)/, (listeLiens) =>{
     navigationPo.verifLiens(listeLiens)
 })
 
+When(/Je clique sur le lien (.*)/, (nomLien)=>{
+    navigationPo.clickLien(nomLien)
+})
+
+Then(/Le bouton (.*) est indisponible de base/, (nomBtn) => {
+    navigationPo.verifDispoBtn(nomBtn, false)
+})
+
 

@@ -58,4 +58,13 @@ export class NavigationPo {
             expect(listeActuLien.join(',')).to.equals(listeLiens)
         })
     }
+
+    clickLien(nomLien){
+        cy.get('body').find('a').contains(new RegExp("\\s" + nomLien + "\\s", "g")).eq(0).click()
+    }
+
+    verifDispoBtn(nomBtn, isDispo){
+        isDispo ? cy.get('body').find('button').contains( nomBtn).should('not.have.attr', 'disabled')
+        : cy.get('body').find('button').contains(nomBtn).should('have.attr', 'disabled')
+    }
 }

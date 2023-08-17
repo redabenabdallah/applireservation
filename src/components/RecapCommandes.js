@@ -3,12 +3,22 @@ import {TiDelete} from 'react-icons/ti'
 import {useDispatch, useSelector} from "react-redux";
 import {prixTotal, removePizza, selectItems, listeSupplementsActual} from "../reducer/pizzaSlice";
 import { RecapCommandesSupplements } from './RecapCommandesSupplements'
-
+import {allInfosUser} from '../reducer/userSlice'
+import { useState } from 'react';
+import { Anniversaire } from './Anniversaire';
 
 export function RecapCommandes() {
     const dispatch = useDispatch()
     const listeCommandes = useSelector(selectItems)
-    const prixCalcule = useSelector(prixTotal)
+    let prixCalcule = useSelector(prixTotal)
+    const usrConx = useSelector(allInfosUser)
+    const usrBirth = new Date(usrConx.naissance)
+    const today = new Date()
+    let isBirthDay = false
+    if( usrBirth.getDate() === today.getDate() && usrBirth.getMonth() === today.getMonth()){
+        prixCalcule = prixCalcule * 0.5
+        isBirthDay = true
+    }
     let listeSupp = useSelector(listeSupplementsActual)
     if (listeCommandes.length === 0) {
         return <div><span>Aucune commande enregistrée</span></div>
@@ -24,7 +34,6 @@ export function RecapCommandes() {
                     <th className={styles.tableRecap}>Nb Commandes</th>
                     <th className={styles.tableRecap}>Liste Suppléments</th>
                     <th className={styles.tableRecap}></th>
-                
                 </tr>
                 </thead>
                 <tbody>
@@ -66,6 +75,7 @@ export function RecapCommandes() {
                 </tr>
                 </tbody>
             </table>
+            {isBirthDay && <Anniversaire/>}
         </div>
     }
 }

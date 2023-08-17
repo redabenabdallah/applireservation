@@ -25,13 +25,13 @@ export function LoginComp (props){
     return <>    
     <form className={styleForm.loginBox}>
     <div>
-        <label>UserName</label>
+        <label>UserName*</label>
         <input id="inputUserLogin" type="text" 
           value={userName}
           onChange={(e) => dispatch(updateUserConnecte(e.target.value))} ></input>
     </div>
     <div>
-        <label>Mot de Passe</label>
+        <label>Mot de Passe*</label>
         <input id="inputUserPwd" type="password"    value={pwd}
           onChange={(e) => setPwd(e.target.value)} ></input>
     </div>

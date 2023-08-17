@@ -18,7 +18,6 @@ Cypress.Commands.add('verifTableau', (idTableau, numCommande, colonne, value) =>
 
 Cypress.Commands.add('getIndexColonneTableau', (idTableau, colonne) => {
    return cy.get(idTableau).find('th').contains(colonne).invoke('index').then((indexCol) => {
-        console.log('index', indexCol)
         return indexCol
     })
 })
