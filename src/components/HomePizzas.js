@@ -12,6 +12,7 @@ import React, { useEffect, useState } from "react";
 import { getReservations } from "../api/getReservations";
 import { ListeSupplementsData } from '../data/ListeSupplementsData';
 import { ListeLinks } from './ListeLinks';
+import { VideoBienvenue } from './VideoBienvenue';
 
 let homePizzas = [
     { 'type': 'napolitaine', 'sauce ': 'tomate', 'piquant': 'non', 'prix': '6 euros', 'nbTotal': 3, 'nbCommandes': 0 },
@@ -126,6 +127,9 @@ export function ListePizzas() {
                 <SupplementsPizza text={supplement.nom} prix={supplement.prix} key={supplement.nom}/>
             ))
             }
+        </div>
+        <div>
+        <VideoBienvenue/>
         </div>
     </>
 }

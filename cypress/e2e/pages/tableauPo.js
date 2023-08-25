@@ -39,6 +39,20 @@ export class TableauPo {
         })
     }
 
+    checkHeaderTabPerf(tempsMax,header, tab){
+        cy.window()
+        .its('performance')
+        .invoke('mark', 'afficheTab')
+
+        cy.get('#tableauRecap').should('exist')
+        cy.window()
+        .its('performance')
+        .invoke('measure', 'afficheTab')
+        .its('duration', { timeout: 0 })
+        .should('be.lessThan', tempsMax)
+
+    }
+
     checkTabListCommandes(maCommande) {
 
     }

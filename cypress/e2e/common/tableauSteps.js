@@ -9,6 +9,10 @@ Then(/^J'ai un tableau récapitulatif de ma commande avec comme header (.*)/, (h
     tableauPo.checkHeaderTab(header, 'recapCommandes')
 });
 
+Then(/^En moins de (\d+) ms, je vois un tableau récapitulatif de ma commande avec comme header (.*)/, (tempsMax, header) => {
+    tableauPo.checkHeaderTabPerf(tempsMax,header, 'recapCommandes')
+});
+
 Then(/^J'ai un tableau récapitulatif avec la commande (.*)/, (maCommande) => {
     tableauPo.checkTabListCommandes(maCommande)
 });

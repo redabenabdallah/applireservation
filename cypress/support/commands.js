@@ -1,3 +1,5 @@
+import 'cypress-iframe';
+
 Cypress.Commands.add('dragDropSupplements', (dragSelector, dropSelector) => {
     cy.get(dragSelector).should('exist')
     const dataTransfer = new DataTransfer();
