@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {prixTotal, removePizza, selectItems, listeSupplementsActual} from "../reducer/pizzaSlice";
 import { RecapCommandesSupplements } from './RecapCommandesSupplements'
 import {allInfosUser} from '../reducer/userSlice'
-import { useState } from 'react';
 import { Anniversaire } from './Anniversaire';
 
 export function RecapCommandes() {

@@ -3,12 +3,6 @@ import moment from 'moment';
 
 import style from '../styles/ReservationCard.module.css'
 
-const isSameDay = (date1, date2) =>
-    date1.getDate() === date2.getDate() &&
-    date1.getMonth() === date2.getMonth() &&
-    date1.getFullYear() === date2.getFullYear() &&
-    date1.getTime() === date2.getTime();
-
 const isBefore = (date1, date2) =>
     moment(date1).isBefore(date2)
 

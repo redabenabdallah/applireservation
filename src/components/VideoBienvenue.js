@@ -14,7 +14,7 @@ export function VideoBienvenue(){
       <div key={m.ref}>    
         <input type="radio" id="music" name="drone" value="music" onClick={() => setMusicDefaut(m.ref)}/>
         <label>{m.nomChanson}</label></div> )}
-      <iframe width="200" height="250"
+      <iframe title={musicDefaut} width="200" height="250"
         src={"https://www.youtube.com/embed/" + musicDefaut}>
       </iframe>
 </>)

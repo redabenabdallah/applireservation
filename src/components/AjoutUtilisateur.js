@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { addUser, listeUsers, orderListeUsers, sortListUser, colActif, messageUserAdd } from "../reducer/userSlice"
-import { useState, useRef } from "react";
+import { useState } from "react";
 import {TiUser} from 'react-icons/ti'
 import style from '../styles/AjoutUtilisateur.module.css'
 import {Snackbar} from '@mui/material'

@@ -1,4 +1,4 @@
-import {currentUser, deconnecteUser, isLoginUser, roleUser} from '../reducer/userSlice'
+import {currentUser} from '../reducer/userSlice'
 
 import style from '../styles/PizzaCss.module.css'
 import {TiArrowRight} from 'react-icons/ti'
