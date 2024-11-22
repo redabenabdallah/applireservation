@@ -3,7 +3,7 @@ const {defineConfig} = require('cypress');
 module.exports = defineConfig({
     chromeWebSecurity: false,
     video: false,
-    defaultCommandTimeout: 25000,
+    defaultCommandTimeout: 5000,
     screenshotOnRunFailure: true,
     numTestsKeptInMemory: 4,
 	pageLoadTimeout: 120000,

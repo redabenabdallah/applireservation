@@ -5,7 +5,7 @@ export class FormulairePo {
     }
 
     upLoadImage(nomImage){
-        cy.get('input[type=file]').selectFile('cypress/fixtures/images/' + nomImage)
+        cy.get('input[type=file]').selectFile('cypress/fixtures/images/' + nomImage, {force: true})
     }
 
     checkUpLoadImage(nomLabel){

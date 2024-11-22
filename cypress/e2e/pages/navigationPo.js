@@ -9,9 +9,9 @@ export class NavigationPo {
 
         cy.clock(dateFormat.getTime(), ['Date'])
         cy.visit('http://localhost:3000/')
-        cy.get('#inputUserLogin').clear().type(userCnx)
-        cy.get('#inputUserPwd').clear().type(pwdCnx)
-        cy.get('#loginUserBtn').click()
+        cy.get('#inputUserLogin').clear({force: true}).type(userCnx)
+        cy.get('#inputUserPwd').clear({force: true}).type(pwdCnx)
+        cy.get('#loginUserBtn').click({force: true})
         cy.url().should((url)=>{
             expect(url.toString().endsWith('mesPizzas')).to.equals(true)
         })
@@ -53,12 +53,12 @@ export class NavigationPo {
     commandePizza(nbPizz, typePizz) {
         times(nbPizz, () => {
             cy.get('body').find('[id*=pizzaModel-]').contains(new RegExp("^" + typePizz + "$", "g"))
-                .parents('span').eq(0).find('button').eq(0).click()
+                .parents('span').eq(0).find('button').eq(0).click({force: true})
         })
     }
 
     clickBtn(btn) {
-        cy.get('body').find('button').contains(new RegExp("^" + btn + "$", "g")).eq(0).click()
+        cy.get('body').find('button').contains(new RegExp("^" + btn + "$", "g")).eq(0).click({force: true})
     }
 
     verifLiens(listeLiens){
@@ -71,7 +71,7 @@ export class NavigationPo {
     }
 
     clickLien(nomLien){
-        cy.get('body').find('a').contains(new RegExp("\\s" + nomLien + "\\s", "g")).eq(0).click()
+        cy.get('body').find('a').contains(new RegExp("\\s" + nomLien + "\\s", "g")).eq(0).click({force: true})
     }
 
     verifDispoBtn(nomBtn, isDispo){
@@ -81,7 +81,7 @@ export class NavigationPo {
 
     verifRadioBtn(pageAcc, listeMusic, tagTitre, titre){
         const toArrayMusic = new Array()
-            cy.get('a').contains(pageAcc).eq(0).click()
+            cy.get('a').contains(pageAcc).eq(0).click({force: true})
             cy.get('body').find(tagTitre).contains(titre).should('have.length', 1)
             cy.get('body').find(tagTitre).contains(titre).eq(0).nextAll('div').should('have.length',3)
             cy.get('body').find(tagTitre).contains(titre).eq(0).nextAll('div').each((el)=>{
@@ -117,7 +117,7 @@ export class NavigationPo {
                 $video[0].playbackRate = 2
             }
             
-          $video[0].click()
+          $video[0].click({force: true})
         })
         if(!isPlaying){
             cy.wait(5000)

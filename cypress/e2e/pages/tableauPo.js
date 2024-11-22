@@ -65,7 +65,7 @@ export class TableauPo {
 
     clickHeaderTab(nomCol , tab){
         const idTab = this.getIdTab(tab)
-        cy.get(idTab).find('th').contains(nomCol).eq(0).click()
+        cy.get(idTab).find('th').contains(nomCol).eq(0).click({force: true})
     }
 
     checkOrderColTab(nomCol , tab, orderExpected){
