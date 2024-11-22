@@ -1,5 +1,4 @@
 FROM cypress/included:12.14.0
-WORKDIR /app
 COPY ./cypress ./cypress
 COPY ./src ./src
 COPY ./public ./public
